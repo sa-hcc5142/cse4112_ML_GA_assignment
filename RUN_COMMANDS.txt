@@ -1,0 +1,117 @@
+CSE 4112 ML GA Assignment - Run Commands
+=========================================
+
+Open PowerShell in the project root:
+
+cd D:\4-1\cse4112_ML_GA_assignment
+
+
+1. Create a virtual environment (first time only)
+--------------------------------------------------
+
+python -m venv venv
+
+
+2. Activate the virtual environment
+------------------------------------
+
+.\venv\Scripts\Activate.ps1
+
+If PowerShell blocks activation, run PowerShell as the current user with:
+
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+
+Then activate again:
+
+.\venv\Scripts\Activate.ps1
+
+
+3. Install project dependencies
+-------------------------------
+
+python -m pip install -r requirements.txt
+
+
+4. Run all tests
+----------------
+
+python -m pytest -v
+
+
+5. Run the population and fitness demo
+---------------------------------------
+
+python -m scripts.demo_person1_person2
+
+
+6. Run the crossover, mutation, and elitism demo
+-------------------------------------------------
+
+python -m scripts.demo_person4
+
+
+7. Run the genetic algorithm directly
+--------------------------------------
+
+python -c "from src.ga import run_ga; result = run_ga(seed=42); print('Best chromosome:', result['best_chromosome']); print('Best fitness:', result['best_fitness']); print('Generations:', len(result['fitness_history']))"
+
+
+8. Generate plots and analysis report
+-------------------------------------
+
+python -m analysis.run_analysis
+
+This creates these files inside analysis\output:
+
+- convergence.png
+- selection_wheel.png
+- parameter_comparison.png
+- analysis.md
+
+
+9. Generate analysis with a custom seed
+---------------------------------------
+
+python -m analysis.run_analysis --seed 123
+
+
+10. Generate analysis in another output folder
+----------------------------------------------
+
+python -m analysis.run_analysis --seed 42 --output-dir analysis\my_output
+
+
+11. Run only the analysis tests
+-------------------------------
+
+python -m pytest -v tests/test_analysis.py
+
+
+12. Compile-check all Python files
+----------------------------------
+
+python -m compileall -q src scripts analysis tests
+
+
+Recommended complete workflow
+-----------------------------
+
+cd D:\4-1\cse4112_ML_GA_assignment
+.\venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m pytest -v
+python -m scripts.demo_person1_person2
+python -m scripts.demo_person4
+python -m analysis.run_analysis
+
+
+Expected baseline result with seed 42
+--------------------------------------
+
+Best fitness is approximately:
+
+0.009841
+
+The analysis files are saved in:
+
+analysis\output
