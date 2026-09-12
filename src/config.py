@@ -1,12 +1,3 @@
-"""
-Central configuration for the GA + Ackley project.
-
-Keeping every tunable value in ONE place means Person 3, 4, and 5 can
-experiment (e.g. try pc = 0.7) without touching function code anywhere
-else, and it gives us a single object to reference when we explain "why
-we chose these settings" during the presentation / viva.
-"""
-
 import math
 
 GA_PARAMS = {

@@ -1,24 +1,3 @@
-"""
-Person 5 — Full GA loop, experiments, graphs, analysis.
-
-Owner: Person 5
-Depends on: src.population, src.fitness, src.selection, src.operators
-
-TODO(Person 5):
-    Wire everything together into run_ga():
-      1. population = initialize_population()
-      2. For each generation in range(num_generations):
-           a. fitness = evaluate_population(population)
-           b. sorted_population, sorted_fitness = sort_population(...)
-           c. track best-ever ("elite") using apply_elitism logic
-           d. parents = roulette_wheel_selection(...)
-           e. build next generation via one_point_crossover + mutate
-           f. apply_elitism to carry the best individual over
-           g. record best fitness this generation (for the convergence graph)
-      3. Stop after num_generations (or another agreed stopping rule).
-      4. Record the convergence history for plotting and analysis.
-"""
-
 from src.config import GA_PARAMS
 from src.fitness import evaluate_population, get_elite
 from src.operators import apply_elitism, create_new_population

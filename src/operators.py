@@ -1,19 +1,3 @@
-"""
-Person 4 — Crossover, Mutation, Elitism, and New Population Generation.
-
-Owner: Person 4
-Depends on: src.config (parameters), src.chromosome (bounds), src.fitness (sorting)
-
-This module implements the core genetic operators for real-valued chromosomes
-on the 2D Ackley function:
-1. one_point_crossover(): recombine two parents with probability Pc (default 80%).
-2. mutate(): perturb/resample genes within [-5, 5] with probability Pm (default 5%).
-3. apply_elitism(): guarantee that the best solution from the previous generation
-   is carried over into the next generation.
-4. create_new_population(): assemble the next generation by pairing parents,
-   applying crossover and mutation.
-"""
-
 import random
 from typing import List, Tuple, Optional
 from src.config import GA_PARAMS
@@ -26,21 +10,6 @@ def one_point_crossover(
     parent2: list,
     pc: Optional[float] = None
 ) -> Tuple[list, list]:
-    """
-    Perform 1-point crossover between two parents with probability pc.
-
-    With probability `pc` (default GA_PARAMS["pc"] = 0.80), a crossover point
-    is chosen and genes after that point are swapped between parent1 and parent2.
-    For a 2-gene chromosome [x1, x2], the crossover point is always index 1,
-    swapping the second gene:
-        parent1 = [p1_x1, p1_x2], parent2 = [p2_x1, p2_x2]
-        child1  = [p1_x1, p2_x2], child2  = [p2_x1, p1_x2]
-
-    With probability (1 - pc), the parents are returned unchanged as fresh copies.
-
-    Returns:
-        (child1, child2): two new chromosome lists.
-    """
     if pc is None:
         pc = GA_PARAMS["pc"]
 

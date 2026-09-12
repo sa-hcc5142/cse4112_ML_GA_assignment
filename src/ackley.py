@@ -1,26 +1,3 @@
-"""
-Person 1 — Ackley function.
-
-The Ackley function is our GA's "fitness landscape". A GA never sees the
-formula directly, it only ever calls this function to ask "how good is
-this candidate solution?" — so getting this right, and being able to
-explain every term, is the foundation everything else is built on.
-
-f(x1, x2, ..., xn) =
-    -a * exp( -b * sqrt( (1/2) * sum(xi^2) ) )
-    - exp( (1/2) * sum(cos(c * xi)) )
-    + a + e
-
-For 2D with the recommended parameters (a=20, b=0.2, c=2*pi):
-
-f(x1, x2) =
-    -20 * exp( -0.2 * sqrt( 0.5 * (x1^2 + x2^2) ) )
-    - exp( 0.5 * (cos(2*pi*x1) + cos(2*pi*x2)) )
-    + 20 + e
-
-Global minimum: f(0, 0) = 0.
-"""
-
 import math
 from src.config import GA_PARAMS
 
