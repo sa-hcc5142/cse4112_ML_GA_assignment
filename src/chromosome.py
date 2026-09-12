@@ -1,18 +1,3 @@
-"""
-Person 1 — Chromosome representation.
-
-We use VALUE ENCODING (not binary encoding): a chromosome is simply a
-list of real numbers, one per gene.
-
-    chromosome = [x1, x2]      e.g. [-1.5, -1.0]
-
-This is a natural fit here because Ackley's inputs are continuous
-real numbers -- binary-encoding them would need an extra
-encode/decode step for no benefit. Person 4 will later mutate a gene
-by nudging this float directly (e.g. -1.5 -> -0.5), which only makes
-sense with value encoding.
-"""
-
 import random
 from src.config import GA_PARAMS
 

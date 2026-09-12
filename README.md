@@ -15,7 +15,7 @@ Find the global minimum of the 2D Ackley function using a Genetic Algorithm (GA)
 | 2 | Person 2 | Population initialization, fitness evaluation, sorting, per-generation elite | ✅ Done |
 | 3 | Person 3 | Roulette-wheel selection | ✅ Done |
 | 4 | Person 4 | 1-point crossover, mutation, elitism carry-over, new population | ✅ Done |
-| 5 | Person 5 | Full GA loop, experiments, graphs, analysis | ⬜ TODO — see `src/ga.py` |
+| 5 | Person 5 | Full GA loop, experiments, graphs, analysis |  ✅ Done |
 
 ## Folder structure
 

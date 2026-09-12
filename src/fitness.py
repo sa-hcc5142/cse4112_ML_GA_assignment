@@ -1,18 +1,3 @@
-"""
-Person 2 — Fitness evaluation.
-
-This is a MINIMIZATION problem: the lower f(x1, x2) is, the fitter the
-chromosome (0 is the theoretical best possible). Everything here is
-written around that: sort_population() defaults to ascending order so
-population[0] is always the best individual, and get_elite() just
-reads that first slot off.
-
-Person 3 (roulette wheel) will need to convert these raw Ackley values
-into selection probabilities where LOWER f = HIGHER chance of being
-picked -- that transformation belongs in Person 3's selection.py, not
-here. This file only computes and orders raw fitness.
-"""
-
 from src.ackley import ackley_2d
 
 
