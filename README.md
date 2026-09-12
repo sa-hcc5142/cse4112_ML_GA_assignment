@@ -14,7 +14,7 @@ Find the global minimum of the 2D Ackley function using a Genetic Algorithm (GA)
 | 1 | Person 1 | Ackley function, GA config, chromosome representation | ✅ Done |
 | 2 | Person 2 | Population initialization, fitness evaluation, sorting, per-generation elite | ✅ Done |
 | 3 | Person 3 | Roulette-wheel selection | ✅ Done |
-| 4 | Person 4 | 1-point crossover, mutation, elitism carry-over | ⬜ TODO — see `src/operators.py` |
+| 4 | Person 4 | 1-point crossover, mutation, elitism carry-over, new population | ✅ Done |
 | 5 | Person 5 | Full GA loop, experiments, graphs, analysis | ⬜ TODO — see `src/ga.py` |
 
 ## Folder structure
@@ -30,16 +30,18 @@ cse4112_ML_GA_assignment/
 │   ├── chromosome.py     # Person 1 — value-encoded chromosome helpers
 │   ├── population.py     # Person 2 — initialize_population()
 │   ├── fitness.py        # Person 2 — evaluate_population(), sort_population(), get_elite()
-│   ├── selection.py       # Person 3 — TODO: roulette_wheel_selection()
-│   ├── operators.py       # Person 4 — TODO: one_point_crossover(), mutate(), apply_elitism()
+│   ├── selection.py       # Person 3 — roulette_wheel_selection()
+│   ├── operators.py       # Person 4 — one_point_crossover(), mutate(), apply_elitism(), create_new_population()
 │   └── ga.py               # Person 5 — TODO: run_ga()
 ├── tests/
 │   ├── __init__.py
 │   ├── test_ackley.py
-│   └── test_population_fitness.py
+│   ├── test_population_fitness.py
+│   └── test_operators.py
 └── scripts/
     ├── __init__.py
-    └── demo_person1_person2.py
+    ├── demo_person1_person2.py
+    └── demo_person4.py
 ```
 
 ## Setup
@@ -56,6 +58,12 @@ Run the Person 1 + 2 demo (population init -> fitness -> sorted -> elite):
 
 ```bash
 python -m scripts.demo_person1_person2
+```
+
+Run the Person 4 demo (crossover, mutation, elitism, generation 0 -> 1 transition):
+
+```bash
+python -m scripts.demo_person4
 ```
 
 Run the tests:
