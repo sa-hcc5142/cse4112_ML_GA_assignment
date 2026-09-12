@@ -1,27 +1,45 @@
-"""
-Person 3 — Selection (NOT YET IMPLEMENTED).
-
-Owner: Person 3
-Depends on: src.fitness (evaluate_population, sort_population)
-
-TODO(Person 3):
-    Implement roulette_wheel_selection(). Suggested approach:
-      1. Convert each fitness value (lower Ackley f = better) into a
-         selection probability where LOWER f gets a HIGHER chance,
-         e.g. probability_i = (max(f) - f_i + epsilon) / sum(...).
-      2. Build a cumulative probability list.
-      3. Draw a random number in [0, 1) and find which "slice" it
-         falls into -- that chromosome is selected as a parent.
-      4. Repeat to select `num_parents` parents (with replacement).
-"""
+import random
 
 
 def roulette_wheel_selection(population: list, fitness_values: list, num_parents: int):
-    """
-    Select `num_parents` chromosomes from `population` using
-    fitness-proportionate (roulette wheel) selection, favoring LOWER
-    Ackley fitness values.
+    if len(population) != len(fitness_values):
+        raise ValueError("Population and fitness values must have the same length")
 
-    Returns: list of selected chromosomes, length == num_parents.
-    """
-    raise NotImplementedError("Person 3: implement roulette_wheel_selection()")
+    if num_parents <= 0:
+        return []
+
+    max_fitness = max(fitness_values)
+
+    selection_values = [
+        (max_fitness - fitness) + 1e-10
+        for fitness in fitness_values
+    ]
+
+    total = sum(selection_values)
+
+    if total == 0:
+        probabilities = [1 / len(population)] * len(population)
+    else:
+        probabilities = [
+            value / total
+            for value in selection_values
+        ]
+
+    cumulative_probabilities = []
+    cumulative = 0
+
+    for probability in probabilities:
+        cumulative += probability
+        cumulative_probabilities.append(cumulative)
+
+    selected_parents = []
+
+    for _ in range(num_parents):
+        r = random.random()
+
+        for i, cumulative_probability in enumerate(cumulative_probabilities):
+            if r <= cumulative_probability:
+                selected_parents.append(population[i])
+                break
+
+    return selected_parents
