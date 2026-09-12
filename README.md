@@ -1,6 +1,6 @@
-# CSE 4112 ML Lab — Genetic Algorithm on the 2D Ackley Function
+# CSE 4111 ML Assignment — Genetic Algorithm on the 2D Ackley Function
 
-Find the global minimum of the 2D Ackley function using a Genetic Algorithm (GA).
+Find the global minima of the 2D Ackley function using a Genetic Algorithm (GA).
 
 - Search space: -5 <= x1, x2 <= 5
 - Global minimum: f(x1*, x2*) = f(0, 0) = 0
@@ -11,11 +11,11 @@ Find the global minimum of the 2D Ackley function using a Genetic Algorithm (GA)
 
 | # | Owner | Scope | Status |
 |---|-------|-------|--------|
-| 1 | Person 1 | Ackley function, GA config, chromosome representation | ✅ Done |
-| 2 | Person 2 | Population initialization, fitness evaluation, sorting, per-generation elite | ✅ Done |
-| 3 | Person 3 | Roulette-wheel selection | ✅ Done |
-| 4 | Person 4 | 1-point crossover, mutation, elitism carry-over, new population | ✅ Done |
-| 5 | Person 5 | Full GA loop, experiments, graphs, analysis |  ✅ Done |
+| 1 | 2107080 | Ackley function, GA config, chromosome representation, Population initialization, fitness evaluation, sorting, per-generation elite | ✅ Done |
+| 2 | 2107110 | Roulette-wheel selection | ✅ Done |
+| 3 | 2107061 | 1-point crossover, mutation, elitism carry-over, new population | ✅ Done |
+| 4 | 2107117 | Full GA loop, experiments, graphs, analysis | ✅ Done |
+| 5 | 2107096 | Complete Testing, output analysis, presentation structure mapping | ✅ Done |
 
 ## Folder structure
 
@@ -38,10 +38,7 @@ cse4112_ML_GA_assignment/
 │   ├── test_ackley.py
 │   ├── test_population_fitness.py
 │   └── test_operators.py
-└── scripts/
-    ├── __init__.py
-    ├── demo_person1_person2.py
-    └── demo_person4.py
+
 ```
 
 ## Setup
@@ -50,26 +47,6 @@ cse4112_ML_GA_assignment/
 python -m venv venv
 source venv/bin/activate        # on Windows: venv\Scripts\activate
 pip install -r requirements.txt
-```
-
-## Running things
-
-Run the Person 1 + 2 demo (population init -> fitness -> sorted -> elite):
-
-```bash
-python -m scripts.demo_person1_person2
-```
-
-Run the Person 4 demo (crossover, mutation, elitism, generation 0 -> 1 transition):
-
-```bash
-python -m scripts.demo_person4
-```
-
-Run the tests:
-
-```bash
-pytest -v
 ```
 
 ## Design notes (for the report / viva)
